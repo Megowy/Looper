@@ -4,75 +4,44 @@
 
 
 
-
-
-
+<section class="body-container">
     <section id="main-body" class="main-body">
-        <section class="player-container d-flex justify-content-between">
-            <section id="playlist" class="playlist">
-                <div class="playlist-item p-2 my-2 d-flex justify-content-around">
-                    <a href="#" id="playlist-item-link" class=" playlist-item-link text-capitalize"> send me an
-                        angel</a>
-                    <span class=""><button id="playlist-play" class="btn-play-list"><i
-                            class="fa fa-play"></i></button>
-                    <button id="playlist-remove" class="btn-play-list"><i class="fa fa-trash"></i></button></span>
-                </div>
-                <div class="playlist-item p-2 my-2 d-flex justify-content-around">
-                    <a href="#" id="playlist-item-link" class=" playlist-item-link text-capitalize"> send me an
-                        angle</a>
-                    <span class=""><button id="playlist-play" class="btn-play-list"><i
-                            class="fa fa-play"></i></button>
-                    <button id="playlist-remove" class="btn-play-list"><i class="fa fa-trash"></i></button></span>
-                </div>
-                <div class="playlist-item p-2 my-2 d-flex justify-content-around">
-                    <a href="#" id="playlist-item-link" class=" playlist-item-link text-capitalize"> send me an
-                        angle</a>
-                    <span class=""><button id="playlist-play" class="btn-play-list"><i
-                            class="fa fa-play"></i></button>
-                    <button id="playlist-remove" class="btn-play-list"><i class="fa fa-trash"></i></button></span>
-                </div>
-
-
-                <div class="playlist-item p-2 my-2 d-flex justify-content-around">
-                    <a href="#" id="playlist-item-link" class=" playlist-item-link text-capitalize"> send me an
-                        angle</a>
-                    <span class=""><button id="playlist-play" class="btn-play-list"><i
-                            class="fa fa-play"></i></button>
-                    <button id="playlist-remove" class="btn-play-list"><i class="fa fa-trash"></i></button></span>
-                </div>
-                <div class="playlist-item p-2 my-2 d-flex justify-content-around">
-                    <a href="#" id="playlist-item-link" class=" playlist-item-link text-capitalize"> send me an
-                        angle</a>
-                    <span class=""><button id="playlist-play" class="btn-play-list"><i
-                            class="fa fa-play"></i></button>
-                    <button id="playlist-remove" class="btn-play-list"><i class="fa fa-trash"></i></button></span>
-                </div>
-                <div class="playlist-item p-2 my-2 d-flex justify-content-around">
-                    <a href="#" id="playlist-item-link" class=" playlist-item-link text-capitalize"> send me an
-                        angle</a>
-                    <span class=""><button id="playlist-play" class="btn-play-list"><i
-                            class="fa fa-play"></i></button>
-                    <button id="playlist-remove" class="btn-play-list"><i class="fa fa-trash"></i></button></span>
-                </div>
-                <div class="playlist-item p-2 my-2 d-flex justify-content-around">
-                    <a href="#" id="playlist-item-link" class=" playlist-item-link text-capitalize"> send me an
-                        angle</a>
-                    <span class=""><button id="playlist-play" class="btn-play-list"><i
-                            class="fa fa-play"></i></button>
-                    <button id="playlist-remove" class="btn-play-list"><i class="fa fa-trash"></i></button></span>
-                </div>
-
-
-
+        <section class="player-container-index ">
+            <section class="index-searcharea">
+                <form action = {% url "youtube_search" %} method="post">
+                    <input name=yt id="index-searchbar" class="index-searchbar" type="search" placeholder="Search ...">
+                    <button class="index-searchbar-btn" type="button"><i class="fas fa-search"></i></button>
+                </form>
             </section>
-            <section class="videoplayer">
-                <section class="main-video">
+
+            <div class="box">
+                <div class="search">
+                    <form action = {% url 'youtube_search' %} method="get">
+                        <input name=yt type="search" id="search" placeholder="Search">
+
+                        <button class="btn_search" type="submit" value="Search" id="send">
+                            <ion-icon name="search"></ion-icon>
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <section class="videoplayer-index">
+                <section class="main-video-index">
                     <video controls>
-                        <source src="assets/video/Test video.mp4">
+                        <source src="static/video/Test video.mp4">
                     </video>
                 </section>
             </section>
         </section>
+
+
+
+
+
+
         <section class="looper">
             <span id="lopper-timer">00:00</span>
             <div class="middle">
@@ -92,15 +61,12 @@
             </div>
         </section>
         <div class="d-flex justify-content-center">
-            <button id="btn-looper-play" class="btn-looper-play "><i id="i-looper-play" class="fa fa-play "></i>
-            </button>
+            <button id="btn-looper-play" class="btn-looper-play "><i id="i-looper-play" class="fa fa-play "></i></button>
             <button id="btn-looper-pause" class="btn-looper-pause d-none"><i id="i-looper-pause"
                                                                              class="fa fa-pause d-none"></i></button>
         </div>
     </section>
-
-
-
+</section>
 
 
 {% endblock %}
