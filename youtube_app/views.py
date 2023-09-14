@@ -9,7 +9,7 @@ class SearchResultsView(ListView):
 
     def get_queryset(self):
         number_of_results = 50
-        query=self.request.GET.get("yt")
+        query=self.request.GET.get("yt_search")
         youtube = discovery.build('youtube', 'v3', developerKey=api_key)
         request = youtube.search().list(q=query, part='snippet', type='video', maxResults=number_of_results)
         result = request.execute()
