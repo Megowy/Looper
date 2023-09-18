@@ -159,7 +159,7 @@
     top: 0;
   }
   .main-body {
-    width: 100%;
+    width: 100% !important;
     z-index: 1;
   }
   .addSong-container {
@@ -759,10 +759,9 @@ input[type="range"]::-webkit-slider-thumb {
   margin: 5rem auto;
   width: 80%;
   height: 10dvh;
-  display: flex;
-  justify-content: center;
+  text-align: center
 }
-.index-searchbar {
+.index-searchbar-input  {
   width: 70%;
   height: 3rem;
   padding: 0.5rem 0.8rem;
@@ -783,7 +782,8 @@ input[type="range"]::-webkit-slider-thumb {
 .index-searchbar-btn {
   width: 3rem;
   height: 3rem;
-  margin: auto 0rem;
+  font-size:1.5rem;
+  margin-left: -4px;
   border: none;
   outline: none;
   border-radius: 0px 15px 15px 0;
