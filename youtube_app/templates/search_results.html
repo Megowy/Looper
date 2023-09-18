@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-{% load static %}
+<!--{% load static %}-->
 
 
 <section id="main-body" class="main-body">
@@ -10,7 +10,7 @@
             <form action="">
                 {% for object in object_list %}
                 {% if user.is_authenticated %}
-                <form action="{% url '#' object.video_id  %}" method="post">
+                <form action="{% url 'index' %}" method="get">
                     {% csrf_token %}
                     <div>
                         <img src="{{ object.video_thumbnail }}" alt=" "
@@ -25,7 +25,7 @@
                     <br><br>
                 </form>
                 {% else %}
-                <form action="{% url 'index' %}" method="post">
+                <form action="{% url 'index' %}" method="get">
                     {% csrf_token %}
                     <div class="text-center">
                         <img src="{{ object.video_thumbnail }}" alt=" "

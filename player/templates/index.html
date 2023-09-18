@@ -4,28 +4,14 @@
 
 
 
-
     <section id="main-body" class="main-body">
         <section class="player-container-index ">
             <section class="index-searcharea">
-                <form action = {% url "youtube_search" %} method="get">
-                    <input name=yt id="index-searchbar" class="index-searchbar" type="search" placeholder="Search ...">
-                    <button class="index-searchbar-btn" type="button"><i class="fas fa-search"></i></button>
+                <form action="{% url 'youtube_search' %}" method="get">
+                    <input name=yt_search id="index-searchbar" class="index-searchbar" type="search" placeholder="Search ...">
+                    <button class="index-searchbar-btn" type="submit"><i class="fas fa-search"></i></button>
                 </form>
             </section>
-
-            <div class="box">
-                <div class="search">
-                    <form action = {% url 'youtube_search' %} method="get">
-                        <input name=yt_search type="search" id="search" placeholder="Search">
-
-                        <button class="btn_search" type="submit" value="Search" id="send">
-                            <ion-icon name="search"></ion-icon>
-                        </button>
-
-                    </form>
-                </div>
-            </div>
 
 
             <section class="videoplayer-index">
@@ -36,10 +22,6 @@
                 </section>
             </section>
         </section>
-
-
-
-
 
 
         <section class="looper">
@@ -66,7 +48,6 @@
                                                                              class="fa fa-pause d-none"></i></button>
         </div>
     </section>
-
 
 
 {% endblock %}
