@@ -1,68 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
-<!--{% load static %}-->
-
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/grid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <title>Looper</title>
+</head>
 
 <section id="main-body" class="main-body">
     <section class="searchPage-container">
         <section class="wrapper-searchPage">
 
-            <form action="">
+            <div>
                 {% for object in object_list %}
-                {% if user.is_authenticated %}
-                <form action="{% url 'index' %}" method="get">
-                    {% csrf_token %}
-                    <div>
-                        <img src="{{ object.video_thumbnail }}" alt=" "
-                             style="width:300px;height:180px;">
-                    </div>
-                    <div>
-                        {{ object.video_id }}<br>
-                        {{ object.title }}<br>
-                        {{ object.description }}<br>
-                        <button type="submit"> Submit</button>
-                    </div>
-                    <br><br>
-                </form>
-                {% else %}
-                <form action="{% url 'index' %}" method="get">
-                    {% csrf_token %}
-                    <div class="text-center">
-                        <img src="{{ object.video_thumbnail }}" alt=" "
-                             style="width:300px;height:180px;">
-                    </div>
-                    <div>
-                        {{ object.video_id }}<br>
-                        {{ object.title }}<br>
-                        {{ object.description }}<br>
-                        <button type="submit"> Submit</button>
-                    </div>
-                    <br><br>
-                </form>
-                {% endif %}
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'youtube_player' object.video_id %}" method="post">
+                            {% csrf_token %}
+                            <div>
+                                <img src="{{ object.video_thumbnail }}" alt=" "
+                                     style="width:300px;height:180px;">
+                            </div>
+                            <div>
+                                {{ object.video_id }}<br>
+                                {{ object.title }}<br>
+                                {{ object.description }}<br>
+                                <button type="submit"> Submit</button>
+                            </div>
+                            <br><br>
+                        </form>
+                    {% else %}
+                        <form action="{% url 'youtube_player' object.video_id %}" method="post">
+                            {% csrf_token %}
+                            <div class="text-center">
+                                <img src="{{ object.video_thumbnail }}" alt=" "
+                                     style="width:300px;height:180px;">
+                            </div>
+                            <div>
+                                {{ object.video_id }}<br>
+                                {{ object.title }}<br>
+                                {{ object.description }}<br>
+                                <button type="submit"> Submit</button>
+                            </div>
+                            <br><br>
+                        </form>
+                    {% endif %}
                 {% endfor %}
-            </form>
+            </div>>
 
-            <form action="">
-                <input type="hidden" value="" method="get">
-                <div class="text-center">
-                    <img id="searchPage-img" src="/assets/img/back-ground.jpg" alt="">
-                </div>
-                <div>
-                    <h5>here be Title</h5>
-                    <h6>here be Author</h6>
-                    <p>here be song description</p>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <button id="searchPage-btn" type="submit">Submit</button>
-                </div>
-            </form>
 
-            </form>
         </section>
     </section>
 </section>
-</section>
+
 
 
 {% endblock %}
