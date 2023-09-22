@@ -5,16 +5,7 @@ $(document).ready(function () {
     $("#sidebar-toggle-show").removeClass("d-inline");
     $("#sidebar-toggle-show").removeClass("d-md-none");
   }
-  function removeiconPauseToggleClass() {
-    
-    $("#btn-looper-pause").removeClass("d-none");
 
-  }
-  function removeiconPlayToggleClass() {
-    
-    $("#btn-looper-play").removeClass("d-none");
-
-  }
 
   $("#sidebar-toggle-hide").click(function () {
     $("#sidebar").fadeOut(300);
@@ -37,19 +28,7 @@ $(document).ready(function () {
   $("#menu-toggle").click(function () {
     $("#body-header").toggle(300);
   });
-  // Search-area show-Hide
-  $("#search-bar-toggle").click(function () {
-    $("#search-bar-toggle").addClass("d-none");
-    $("#search-area").removeClass("d-none");
-    $("#search-bar-input").animate({ width: "20rem" }, 300);
-  });
-  $("#search-area-hide").click(function () {
-    $("#search-bar-input").animate({ width: "0" }, 300);
-    setTimeout(function () {
-      $("#search-bar-toggle").removeClass("d-none");
-      $("#search-area").addClass("d-none");
-    }, 300);
-  });
+  // Login show-Hide
   $("#header-profile-toggle").click(function () {
     $("#header-profile").toggle(300);
   });
