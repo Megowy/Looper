@@ -1,151 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
+  {% load static %}
 
-
-{% load static %}
-
-
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/grid.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/bootstrap/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/grid.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'favicon.ico' %}"
+    />
     <title>Looper</title>
-</head>
+  </head>
 
-<body>
-<header class="header">
-
-    <section class="sidebar-header bg-gray">
-        <section class="d-flex justify-content-between  px-2">
-            <span id="sidebar-toggle-show" class="d-inline d-md-none pointer"><i class="fas fa-toggle-off"></i></span>
-            <span id="sidebar-toggle-hide" class="d-none d-md-inline pointer"><i class="fas fa-toggle-on"></i></span>
-            <!-- <span><img src="assets/img/unnamed.jpg " class="logoImg" alt="Logo"><span> -->
-            <span id="menu-toggle" class="d-md-none"><i class="fas fa-ellipsis-h"></i></span>
+  <body>
+    <header class="header">
+      <section class="sidebar-header bg-gray">
+        <section class="d-flex justify-content-between px-2">
+          <span id="sidebar-toggle-show" class="d-inline d-md-none pointer"
+            ><i class="fas fa-toggle-off"></i
+          ></span>
+          <span id="sidebar-toggle-hide" class="d-none d-md-inline pointer"
+            ><i class="fas fa-toggle-on"></i
+          ></span>
+          <!-- <span><img src="assets/img/unnamed.jpg " class="logoImg" alt="Logo"><span> -->
+          <span id="menu-toggle" class="d-md-none"
+            ><i class="fas fa-ellipsis-h"></i
+          ></span>
         </section>
-    </section>
-    <section id="body-header" class="body-header">
+      </section>
+      <section id="body-header" class="body-header">
         <section class="d-flex justify-content-end">
-            <section class="search-area-section d-none">
-                <span class="m-5">
-                    <span id="search-area" class="search-area d-none">
-                      <i id="search-area-hide" class="fas fa-times pointer"></i>
-                      <input type="text" name="" class="search-input " id="search-bar-input">
-                      <i class="fas fa-search pointer" id="search-icon"></i>
-                    </span>
-                    <i id="search-bar-toggle" class="fas fa-search p-1  pointer"></i>
-                </span>
+          <section class="search-area-section">
+            <section class="basepage-searcharea">
+              <form action="{% url 'youtube_search' %}" method="get">
+                <input
+                  name="yt_search"
+                  id="basepage-searchbar"
+                  class="basepage-searchbar-input"
+                  type="search"
+                  placeholder="Search ..."
+                />
+                <button class="basepage-searchbar-btn" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
             </section>
-            <section class="mx-5">
-                <span class="ml-3 ml-md-5 position-relative">
-                    <span id="header-profile-toggle" class="pointer"></span>
-                    <span class="header-username">Login</span>
-                    <i class="fas fa-sign-in-alt"></i>
-                </span>
+          </section>
+          <section class="login-header mx-5">
+            <span class="ml-3 ml-md-5 position-relative">
+              <span id="header-profile-toggle" class="pointer"></span>
+              <span class="header-username">Login</span>
+              <i class="fas fa-sign-in-alt"></i>
+            </span>
             <section id="header-profile" class="header-profile rounded">
-                  <section class="list-group rounded">
-                        <div class="list-group-item list-group-item-action header-profile-link">
-                          <input type="email" placeholder="Email" class="user-info">
-                          <input type="password" placeholder="Password" class="user-info">
-                          <button class=" user-info-btn p-2" type="submit" id="btn-signup">Login</button>
-                          <a href="signUp.html">
-                            <button class=" user-info-btn mx-2 p-2" type="submit" id="btn-signup">Sign Up</button>
-                          </a>
-                          <span class="loginRememberMe login-item ">
-                            <input class="pointer" id="rememberMe" type="checkbox">
-                            <label class="pointer" for="rememberMe"> Remember Me </label>
-                          </span>
-                          <span class="loginForgetPassword login-item"><a href="#" class="link">Forgot Your Password?</a></span>
-                        </div>
-                        <a id="logout-user" href="#" class="list-group-item list-group-item-action header-profile-link">
-                          <i class="fas fa-sign-out-alt"></i>Logout
-                        </a>
-                  </section>
-            </section>
-
-
-            </section>
-
-        </section>
-    </section>
-</header>
-<section class="body-container">
-    <aside id="sidebar" class="sidebar">
-        <section class="sidebar-container">
-            <section class="sidebar-wrapper">
-
-                <a href="{% url 'index' %}" class="sidebar-link">
-                    <i class="fas fa-home"></i>
-                    <span>HOME</span>
+              <section class="list-group rounded">
+                <div
+                  class="list-group-item list-group-item-action header-profile-link"
+                >
+                  <input type="email" placeholder="Email" class="user-info" />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    class="user-info"
+                  />
+                  <button
+                    class="user-info-btn p-2"
+                    type="submit"
+                    id="btn-signup"
+                  >
+                    Login
+                  </button>
+                  <a href="signUp.html">
+                    <button
+                      class="user-info-btn mx-2 p-2"
+                      type="submit"
+                      id="btn-signup"
+                    >
+                      Sign Up
+                    </button>
+                  </a>
+                  <span class="loginRememberMe login-item">
+                    <input class="pointer" id="rememberMe" type="checkbox" />
+                    <label class="pointer" for="rememberMe">
+                      Remember Me
+                    </label>
+                  </span>
+                  <span class="loginForgetPassword login-item"
+                    ><a href="#" class="link">Forgot Your Password?</a></span
+                  >
+                </div>
+                <a
+                  id="logout-user"
+                  href="#"
+                  class="list-group-item list-group-item-action header-profile-link"
+                >
+                  <i class="fas fa-sign-out-alt"></i>Logout
                 </a>
-                <section class="sidebar-group-link">
-                    <section class="sidebar-dropdown-toggle">
-                        <i class="fas fa-music icon"></i>
-                        <span>Play List</span>
-                        <i class="fas fa-angle-right angle"></i>
-                    </section>
-                    <section class="sidebar-dropdown">
-                        <a href="addSong.html">Add New Song</a>
-                    </section>
-                </section>
-                <section class="sidebar-group-link">
-                    <section class="sidebar-dropdown-toggle">
-                        <i class="fas fa-tv icon"></i>
-                        <span>Channels</span>
-                        <i class="fas fa-angle-right angle"></i>
-                    </section>
-                    <section class="sidebar-dropdown">
-                        <a href="#">Youtube</a>
-                        <a href="#">Spotify</a>
-                    </section>
-                </section>
-                <section class="sidebar-group-link">
-                    <section class="sidebar-dropdown-toggle">
-                        <i class="far fa-address-card icon"></i>
-                        <span>About us</span>
-                        <i class="fas fa-angle-right angle"></i>
-                    </section>
-                    <section class="sidebar-dropdown">
-                        <a href="#">Who we are?</a>
-                        <a href="contact.html">Contact Us</a>
-
-                    </section>
-                </section>
-                <section class="sidebar-group-link">
-                    <section class="sidebar-dropdown-toggle">
-                        <i class="fas fa-cogs icon"></i>
-                        <span>Setting</span>
-                        <i class="fas fa-angle-right angle"></i>
-                    </section>
-                    <section class="sidebar-dropdown">
-                        <a href="#">Header</a>
-                        <a href="#">Footer</a>
-                    </section>
-                </section>
-
-
+              </section>
             </section>
+          </section>
         </section>
-    </aside>
+      </section>
+    </header>
+    <section class="body-container">
+      <aside id="sidebar" class="sidebar">
+        <section class="sidebar-container">
+          <section class="sidebar-wrapper">
+            <a href="{% url 'index' %}" class="sidebar-link">
+              <i class="fas fa-home"></i>
+              <span>HOME</span>
+            </a>
+            <section class="sidebar-group-link">
+              <section class="sidebar-dropdown-toggle">
+                <i class="fas fa-music icon"></i>
+                <span>Play List</span>
+                <i class="fas fa-angle-right angle"></i>
+              </section>
+              <section class="sidebar-dropdown">
+                <a href="addSong.html">Add New Song</a>
+              </section>
+            </section>
+            <section class="sidebar-group-link">
+              <section class="sidebar-dropdown-toggle">
+                <i class="fas fa-tv icon"></i>
+                <span>Channels</span>
+                <i class="fas fa-angle-right angle"></i>
+              </section>
+              <section class="sidebar-dropdown">
+                <a href="#">Youtube</a>
+                <a href="#">Spotify</a>
+              </section>
+            </section>
+            <section class="sidebar-group-link">
+              <section class="sidebar-dropdown-toggle">
+                <i class="far fa-address-card icon"></i>
+                <span>About us</span>
+                <i class="fas fa-angle-right angle"></i>
+              </section>
+              <section class="sidebar-dropdown">
+                <a href="#">Who we are?</a>
+                <a href="contact.html">Contact Us</a>
+              </section>
+            </section>
+            <section class="sidebar-group-link">
+              <section class="sidebar-dropdown-toggle">
+                <i class="fas fa-cogs icon"></i>
+                <span>Setting</span>
+                <i class="fas fa-angle-right angle"></i>
+              </section>
+              <section class="sidebar-dropdown">
+                <a href="#">Header</a>
+                <a href="#">Footer</a>
+              </section>
+            </section>
+          </section>
+        </section>
+      </aside>
 
-    <section id="main-body" class="main-body">
-        {% block content %}
-        {% endblock %}
-
+      <section id="main-body" class="main-body">
+        {% block content %} {% endblock %}
+      </section>
     </section>
-</section>
 
-
-<script src="static/js/jquery-3.5.1.min.js"></script>
-<script src="static/js/popper.js"></script>
-<script src="static/js/bootstrap/bootstrap.min.js"></script>
-<script src="static/js/grid.js"></script>
-
-</body>
-
+    <script src="static/js/jquery-3.5.1.min.js"></script>
+    <script src="static/js/popper.js"></script>
+    <script src="static/js/bootstrap/bootstrap.min.js"></script>
+    <script src="static/js/grid.js"></script>
+  </body>
 </html>

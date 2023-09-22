@@ -16,8 +16,7 @@
 <section id="main-body" class="main-body">
     <section class="searchPage-container">
         <section class="wrapper-searchPage">
-
-            <div>
+            <div class="formwrapper-searchPage">
                 {% for object in object_list %}
                     {% if user.is_authenticated %}
                         <form action="{% url 'youtube_player' object.video_id %}" method="post">
@@ -41,7 +40,7 @@
                                 <img src="{{ object.video_thumbnail }}" alt=" "
                                      style="width:300px;height:180px;">
                             </div>
-                            <div>
+                            <div class="resultinfo">
                                 {{ object.video_id }}<br>
                                 {{ object.title }}<br>
                                 {{ object.description }}<br>
@@ -51,9 +50,7 @@
                         </form>
                     {% endif %}
                 {% endfor %}
-            </div>>
-
-
+            </div>
         </section>
     </section>
 </section>

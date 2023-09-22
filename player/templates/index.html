@@ -1,53 +1,40 @@
-{% extends "base.html" %}
-{% block content %}
-{% load static %}
+{% extends "base.html" %} {% block content %} {% load static %}
 
-
-
-    <section id="main-body" class="main-body">
-        <section class="player-container-index ">
-            <section class="index-searcharea">
-                <form action="{% url 'youtube_search' %}" method="get">
-                    <input name=yt_search id="index-searchbar" class="index-searchbar-input" type="search" placeholder="Search ...">
-                    <button class="index-searchbar-btn" type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </section>
-
-
-            <section class="videoplayer-index">
-                <section class="main-video-index">
-                    <video controls>
-                        <source src="static/video/Test video.mp4">
-                    </video>
-                </section>
-            </section>
-        </section>
-
-
-        <section class="looper">
-            <span id="lopper-timer">00:00</span>
-            <div class="middle">
-
-                <div class="multi-range-slider">
-
-                    <input type="range" id="input-left" min="0" max="100" value="25">
-                    <input type="range" id="input-right" min="0" max="100" value="75">
-
-                    <div class="slider">
-                        <div class="track"></div>
-                        <div class="range"></div>
-                        <div class="thumb left"></div>
-                        <div class="thumb right"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="d-flex justify-content-center">
-            <button id="btn-looper-play" class="btn-looper-play "><i id="i-looper-play" class="fa fa-play "></i></button>
-            <button id="btn-looper-pause" class="btn-looper-pause d-none"><i id="i-looper-pause"
-                                                                             class="fa fa-pause d-none"></i></button>
-        </div>
+<section id="main-body" class="main-body">
+  <section class="player-container-index">
+    <section class="videoplayer-index">
+      <section class="main-video-index">
+        <video class="video-p"  controls>
+          <source src="static/video/Test video.mp4" />
+        </video>
+      </section>
     </section>
+  </section>
 
+  <section class="looper">
+    <span id="lopper-timer">00:00</span>
+    <div class="middle">
+      <div class="multi-range-slider">
+        <input type="range" id="input-left" min="0" max="100" value="25" />
+        <input type="range" id="input-right" min="0" max="100" value="75" />
+
+        <div class="slider">
+          <div class="track"></div>
+          <div class="range"></div>
+          <div class="thumb left"></div>
+          <div class="thumb right"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="text-center">
+    <button id="btn-looper-play" class="btn-looper-play">
+      <i id="i-looper-play" class="fa fa-play"></i>
+    </button>
+    <button id="btn-looper-pause" class="btn-looper-pause ">
+      <i id="i-looper-pause" class="fa fa-pause "></i>
+    </button>
+  </div>
+</section>
 
 {% endblock %}

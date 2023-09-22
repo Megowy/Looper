@@ -26,13 +26,13 @@ color: #dcdcdc;
   color: white;
 }
 
-.btn-looper-play{
+.btn-looper-play,.btn-looper-pause{
 border: none;
 background-color: transparent;
 font-size: larger;
 color: wheat;
 padding: .8rem;
-position: relative;
+transform: translate(-50%,-50%);
 }
 .btn-looper-play:hover{
   background: #dcdcdc;
@@ -42,15 +42,9 @@ position: relative;
 .btn-looper-play:focus{
   outline: none;
 }
-.btn-looper-pause{
-border: none;
-background-color: transparent;
-font-size: larger;
-color: wheat;
-padding: .8rem;
-position: absolute;
 
-}
+
+
 .btn-looper-pause:hover{
   background: #dcdcdc;
   border-radius: 50%;
