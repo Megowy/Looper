@@ -54,6 +54,7 @@
                                                         });
                         }
                     }
+
                     </script>
                 </div>
             </section>
@@ -67,8 +68,10 @@
             <div class="multi-range-slider">
                 <form id="loop" action="" method="POST">
                     {% csrf_token %}
-                    <input type="range" name="start_value" id="input-left" min="0" max="{{ length }}" value={{ start_video }}>
-                    <input type="range" name="stop_value" id="input-right" min="{{ 0 }}" max="{{ length }}" value={{ stop_video }}>
+                    <input type="range" name="start_value" id="input-left" min="0" max="{{ length }}" value={{
+                           start_video }} oninput="leftfunction()">
+                    <input type="range" name="stop_value" id="input-right" min="{{ 0 }}" max="{{ length }}" value={{
+                           stop_video }}>
 
                 </form>
                 <div class="slider">
@@ -83,7 +86,7 @@
         </div>
     </section>
     <div class="text-center">
-        <button type="submit"  form="loop"  id="btn-looper-play" class="btn-looper-play">
+        <button type="submit" form="loop" id="btn-looper-play" class="btn-looper-play">
             <i id="i-looper-play" class="fa fa-play"></i>
         </button>
         <button id="btn-looper-pause" class="btn-looper-pause ">
@@ -91,33 +94,29 @@
         </button>
     </div>
 
-              <br>
     <p>START: <span id="startvalue"></span> STOP: <span id="stopvalue"></span></p>
 
-            <script>
-                    var sliderl = document.getElementById("input-left");
-                    var outputl = document.getElementById("startvalue");
-                    outputl.innerHTML = sliderl.value;
 
-                        sliderl.oninput = function() {
-                                              outputl.innerHTML = this.value;
-                                            }
+    <script>
+        var sliderl = document.getElementById("input-left");
+        var outputl = document.getElementById("startvalue");
+        outputl.innerHTML = Math.floor(sliderl.value/60) +" : "+ sliderl.value%60;
 
-            </script>
-            <script>
-                    var sliderr = document.getElementById("input-right");
-                    var outputr = document.getElementById("stopvalue");
-                    outputr.innerHTML = sliderr.value;
+            sliderl.oninput = function() {
+                                       outputl.innerHTML = Math.floor(this.value/60) +" : "+ this.value%60 ;
+                                }
 
-                        sliderr.oninput = function() {
-                                              outputr.innerHTML = this.value;
-                                            }
+    </script>
+    <script>
+        var sliderr = document.getElementById("input-right");
+        var outputr = document.getElementById("stopvalue");
+        outputr.innerHTML = Math.floor(sliderr.value/60) +" : "+ sliderr.value%60;
 
-            </script>
+            sliderr.oninput = function() {
+                                            outputr.innerHTML = Math.floor(this.value/60) +" : "+ this.value%60
+                                }
 
-
-
-
+    </script>
 
 </section>
 {% endblock %}
