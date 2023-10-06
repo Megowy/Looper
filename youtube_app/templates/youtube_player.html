@@ -55,6 +55,7 @@
                         }
                     }
 
+
                     </script>
                 </div>
             </section>
@@ -100,22 +101,34 @@
     <script>
         var sliderl = document.getElementById("input-left");
         var outputl = document.getElementById("startvalue");
-        outputl.innerHTML = Math.floor(sliderl.value/60) +" : "+ sliderl.value%60;
+        outputl.innerHTML = Math.floor(sliderl.value/60) +" : "+ addZero(sliderl.value%60);
 
-            sliderl.oninput = function() {
-                                       outputl.innerHTML = Math.floor(this.value/60) +" : "+ this.value%60 ;
-                                }
+        sliderl.oninput = function() {
+                                   outputl.innerHTML = Math.floor(this.value/60) +" : "+ addZero(this.value%60) ;
+                            }
 
+        function addZero(i) {
+              if (i < 10) {
+                i = "0" + i
+              };
+              return i;
+            }
     </script>
     <script>
         var sliderr = document.getElementById("input-right");
         var outputr = document.getElementById("stopvalue");
-        outputr.innerHTML = Math.floor(sliderr.value/60) +" : "+ sliderr.value%60;
+        outputr.innerHTML = Math.floor(sliderr.value/60) +" : "+ addZero(sliderr.value%60);
 
-            sliderr.oninput = function() {
-                                            outputr.innerHTML = Math.floor(this.value/60) +" : "+ this.value%60
-                                }
+        sliderr.oninput = function() {
+                                        outputr.innerHTML = Math.floor(this.value/60) +" : "+ addZero(this.value%60)
+                            }
 
+        function addZero(i) {
+              if (i < 10) {
+                i = "0" + i
+              };
+              return i;
+              }
     </script>
 
 </section>
